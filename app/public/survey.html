@@ -194,5 +194,19 @@
 </body>
 
 </html>
-<!-- Grab the values of the client information -->
-<!-- Send the information to the server from the clientside -->
+<script>
+// Grab the values of the client information
+// what we need to grab
+// person presses submit button
+// 	var person = {
+// 		pame:
+// 		photourl:
+// 		questions:[options should pushed into this array]
+// 	}
+	
+// Send the information to the server from the clientside
+$.post("/survey", function(data){
+	console.log(data);
+	console.log('adding to our server');
+})
+</script>
