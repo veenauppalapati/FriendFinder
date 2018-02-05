@@ -2,8 +2,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+
+// console.log(htmlRoutes);
 //call express
 var app = express();
+require('../app/routing/htmlRoutes.js')(app, path);
 // Declare a port
 var PORT = 3000;
 
