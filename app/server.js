@@ -7,6 +7,7 @@ var path = require('path');
 //call express
 var app = express();
 require('../app/routing/htmlRoutes.js')(app, path);
+require('../app/routing/apiRoutes.js')(app, path);
 // Declare a port
 var PORT = 3000;
 
