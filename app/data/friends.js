@@ -1,6 +1,7 @@
 
 // array of objects
-var friends = [
+module.exports = function(app){
+var friends =[
     {   
         routeName: "ahmed",
         name:"Ahmed",
@@ -17,5 +18,17 @@ var friends = [
                     4,
                     1
         ]
-    },
+    }   
 ]
+
+//retreiving stored objects with person's data
+app.post("/survey", function(req, res){
+    var incomingPerson = req.body;
+    incomingPerson.routeName = incomingPerson.name.replace(/\s+/g, "").toLowerCase();
+    console.log(incomingPerson);
+    // friends.push(person);
+})
+
+
+}
+
