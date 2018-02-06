@@ -16,10 +16,11 @@ const friends = [
                     4,
                     1
         ]
-    }   
+    }  
+     
 ];
 
-module.exports = function(app){
+var addingPerson = function(app){
 
     //retreiving stored objects with person's data
     app.post("/survey", function(req, res){
@@ -27,9 +28,10 @@ module.exports = function(app){
         incomingPerson.routeName = incomingPerson.name.replace(/\s+/g, "").toLowerCase();
         console.log(incomingPerson);
         // friends.push(person);
+        // console.log(friends);
     });
-    return friends;
 
 };
 
 module.exports.friends = friends;
+module.exports.addingPerson = addingPerson;
