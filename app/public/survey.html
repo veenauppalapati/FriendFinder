@@ -199,21 +199,11 @@
 				$("#submitButton").click(function (event) {
 					event.preventDefault();
 					var person = {
-						
 						name: $("#name").val().trim(),
 						photourl: $("#image").val().trim(),
-						questions: [
-							$("#Question1 :selected").val().trim(),
-							$("#Question2 :selected").val().trim(),
-							$("#Question3 :selected").val().trim(),
-							$("#Question4 :selected").val().trim(),
-							$("#Question5 :selected").val().trim(),
-							$("#Question6 :selected").val().trim(),
-							$("#Question7 :selected").val().trim(),
-							$("#Question8 :selected").val().trim(),
-							$("#Question9 :selected").val().trim(),
-							$("#Question10 :selected").val().trim()
-						]
+						questions: $('select.form-control').map(function () {
+							return this.value
+						}).get()
 					}
 					console.log(person);
 
