@@ -202,7 +202,7 @@
 						name: $("#name").val().trim(),
 						photourl: $("#image").val().trim(),
 						questions: $('select.form-control').map(function () {
-							return this.value
+							return parseInt(this.value);
 						}).get()
 					}
 					console.log(person);
