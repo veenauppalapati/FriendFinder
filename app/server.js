@@ -6,8 +6,9 @@ var path = require('path');
 // console.log(htmlRoutes);
 //call express
 var app = express();
+//requiring htmlRoute.js
 require('../app/routing/htmlRoutes.js')(app, path);
-require('../app/routing/apiRoutes.js')(app, path);
+
 // Declare a port
 var PORT = 3000;
 
@@ -15,7 +16,13 @@ var PORT = 3000;
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-require('../app/data/friends.js')(app);
+//requiring the friends.js
+// require('../app/data/friends.js')
+const friends = require('../app/data/friends.js').friends;
+//requiring apiRoutes.js
+require('../app/routing/apiRoutes.js')(app);
+
+
 
 //Listen to port
 app.listen(PORT, ()=>{
