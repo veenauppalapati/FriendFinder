@@ -37,27 +37,38 @@ const friends = [
      
 ];
 
-var addingPerson = function(app){
+var addingPerson = function(app, incomingPerson){
     //retreiving stored objects with person's data
     app.post("/survey", function(req, res){
         var incomingPerson = req.body;
-        // console.log(friends);
         incomingPerson.routeName = incomingPerson.name.replace(/\s+/g, "").toLowerCase();
-        // console.log(incomingPerson);
-        friends.push(incomingPerson);
-        // console.log(friends);
-        console.log(friends);
-
+        incomingPerson.questions = incomingPerson['questions[]'];
+        delete incomingPerson['questions[]'];
+        friends.push(incomingPerson); 
+        var incomingPersonQuestions = (incomingPerson.questions);
+        var friendsQuestions = []
         friends.forEach(element => {
-            var questionsInArray = element.questions;
-            // console.log(questionsInArray);
-            var incomingPersonQuestions = incomingPerson.questions;
-            console.log(incomingPerson.questions);
+            friendsQuestions.push(element.questions);
         });
-       
-        
+        console.log(friendsQuestions);
+        res.json(incomingPerson);   
+     
     });
+    
 };
+
+
+
+    // compare these two arrays and find the difference for each element
+    // push it to results array
+    // add all the elements in the results array 
+    // push it to compatibility array
+    // find the lowest number 
+    // pop that object with the lowest number
+    
+
+
 // exporting friends and function addingPerson to use it in server.js
 module.exports.friends = friends;
 module.exports.addingPerson = addingPerson;
+

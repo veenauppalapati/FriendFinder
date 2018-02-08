@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 //requiring the friends.js
 const friends = require('../app/data/friends.js');
 friends.addingPerson(app);
+// friends.findAMatch(incomingPersonQuestions);
 // console.log(friends.friends);
 
 //Listen to port

@@ -202,10 +202,10 @@
 						name: $("#name").val().trim(),
 						photourl: $("#image").val().trim(),
 						questions: $('select.form-control').map(function () {
-							return parseInt(this.value);
-						}).get()
-					}
-					console.log(person);
+										return parseInt(this.value);
+										}).get()
+						};						
+					console.log(person.questions);
 
 					// Send the information to the server from the clientside
 					$.post("/survey", person)
