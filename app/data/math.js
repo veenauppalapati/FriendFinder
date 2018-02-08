@@ -35,13 +35,11 @@
 // }
 // findAMatch(a,b);
 
-var a = [2, 3, 5];
-var b = [[3, 2, 1], [2, 4, 5], [4, 3, 1]];
 //[(2-3) + (3-2) + 5-1 = 1+1+4 = 6
 // (2-2) + (3-4) + (5-5) + 0+1+0 = 1
 // (2-4) + (3-3) + (5-4)  =2+0+4 =6
 
-function findAMatch(firstArray, secondArray) {
+var findAMatch = function (firstArray, secondArray) {
     var finalResultsArray = [];
     secondArray.forEach(secondArrayElements => {
         var temp = [];
@@ -57,5 +55,19 @@ function findAMatch(firstArray, secondArray) {
     });
     return finalResultsArray;
 }
-console.log(findAMatch(a, b));
+//console.log(findAMatch(firstArray, secondArray));
+////=====================
+var getIndexOfSmallestInArray = function(){
+    Array.min = function (array) {
+    return Math.min.apply(Math, array);
+}
+ var r = findAMatch(a,b);
+var minimum = Array.min(findAMatch(a,b));
+return r.indexOf(minimum);
+}
 
+console.log(getIndexOfSmallestInArray());
+//console.log(`The index of the smallest number in the array is '${r.indexOf(minimum)}'`);
+
+module.exports.findAMatch = findAMatch;
+module.exports.getIndexOfSmallestInArray = getIndexOfSmallestInArray

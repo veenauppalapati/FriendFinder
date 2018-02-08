@@ -1,3 +1,4 @@
+
 // array of objects
 const friends = [
     {   
@@ -51,6 +52,11 @@ var addingPerson = function(app, incomingPerson){
             friendsQuestions.push(element.questions);
         });
         console.log(friendsQuestions);
+        const math = require('./math.js');
+        var findAMathchArray = math.findAMatch(incomingPersonQuestions, friendsQuestions);
+        console.log(findAMathchArray);
+        math.getIndexOfSmallestInArray(findAMathchArray);
+
         res.json(incomingPerson);   
      
     });
