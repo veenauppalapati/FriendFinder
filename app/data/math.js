@@ -13,7 +13,7 @@ function findAMatch (firstArray, secondArray) {
     var tempArray = [];
 
     for (var i = 0; i< secondArray.length; i++){
-        tempArray.push(firstArray[i]   -   secondArray[0][i]);
+        tempArray.push(Math.abs(firstArray[i]   -   secondArray[0][i]));
     }
     console.log(tempArray);
     // b.forEach((element, index)=> {
