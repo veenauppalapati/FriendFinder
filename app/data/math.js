@@ -1,32 +1,58 @@
-var a = [ 2, 3, 5];
-var b = [ [1, 4, 5], [2, 3, 5], [4, 3, 1]];
-
-// first Array has one element questions
-// second Array has array of multiple elements questions array.  arrays inside of an array
-function findAMatch (firstArray, secondArray) {
-    //iterate through array b 
-    // b.forEach(element => {
+// var a = [ 2, 3, 5];
+// var b = [ [1, 4, 5],[2, 3, 3] ];
+// //Expected results [2,0,6]
+// // first Array has one element questions
+// // second Array has array of multiple elements questions array.  arrays inside of an array
+// function findAMatch (firstArray, b) {
+//  var x =   function(){
+//     for (let t = 0; t < firstArray.length; t++) {
+//         var elementfirstArray = firstArray[t];
+//        console.log(elementfirstArray); 
+//     }
+// var i = 0;
+//     while(i<b.length){
+//         var elementI = (b[i]);
+//         //return elementI;
+//         console.log('hello')
+       
+//         elementI.forEach(element => {
+//             console.log('hi')
+//             //console.log(elementfirstArray);
+//             // console.log(element+2);
+//             console.log(element);
+//             // console.log(elementfirstArray);
+//             // console.log(element);
+//             // console.log(elementfirstArray - element);
+//             // console.log(`${elementfirstArray} and ${elementI[element]}`);
+//         });
         
-    // });
-    // 
-    // compare each index's elements with array firstArray elements
-    var tempArray = [];
+//        i++; 
+//     }
 
-    for (var i = 0; i< secondArray.length; i++){
-        tempArray.push(Math.abs(firstArray[i]   -   secondArray[0][i]));
-    }
-    console.log(tempArray);
-    // b.forEach((element, index)=> {
-    //     console.log(element[element[index]]);
-    // // find the difference for each element's index 
-    
-    // // push the difference to a results array
-    // });
-   
-    // add the elements in the results array
-    // push the added results into a compatiblity array
-    // look for the lowest number in the compatibility array
-    // based on the number from the compatibility array, use it as an index to find the obect in friends array
+//  } 
+// x();
+  
+// }
+// findAMatch(a,b);
 
+var a = [2, 3, 5];
+var b = [[3, 2, 1], [2, 4, 5], [4, 3, 1]];
+//[1,1,4]
+function findAMatch(firstArray, secondArray) {
+    var finalResultsArray = [];
+    secondArray.forEach(secondArrayElements => {
+        var temp = [];
+        for (i in secondArrayElements) {
+            for (j in firstArray) {
+                if (i == j) {
+                    temp.push(Math.abs(firstArray[j] - secondArrayElements[i]));
+                }
+            }
+        }
+        // sum temp element, and add to finalResultsArray
+        finalResultsArray.push(temp.reduce((a, b) => a + b, 0));
+    });
+    return finalResultsArray;
 }
-findAMatch(a,b);
+console.log(findAMatch(a, b));
+
