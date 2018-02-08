@@ -37,7 +37,10 @@
 
 var a = [2, 3, 5];
 var b = [[3, 2, 1], [2, 4, 5], [4, 3, 1]];
-//[1,1,4]
+//[(2-3) + (3-2) + 5-1 = 1+1+4 = 6
+// (2-2) + (3-4) + (5-5) + 0+1+0 = 1
+// (2-4) + (3-3) + (5-4)  =2+0+4 =6
+
 function findAMatch(firstArray, secondArray) {
     var finalResultsArray = [];
     secondArray.forEach(secondArrayElements => {
