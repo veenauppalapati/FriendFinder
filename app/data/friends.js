@@ -38,7 +38,7 @@ const friends = [
      
 ];
 
-var addingPerson = function(app, incomingPerson){
+var addingPerson = function(app){
     //retreiving stored objects with person's data
     app.post("/survey", function(req, res){
         var incomingPerson = req.body;
