@@ -45,35 +45,26 @@ var addingPerson = function(app, incomingPerson){
         incomingPerson.routeName = incomingPerson.name.replace(/\s+/g, "").toLowerCase();
         incomingPerson.questions = incomingPerson['questions[]'];
         delete incomingPerson['questions[]'];
-        friends.push(incomingPerson); 
         var incomingPersonQuestions = (incomingPerson.questions);
-        var friendsQuestions = []
+
+        var friendsQuestions = [];
+        // push the arrays into one array to use friendsQuestions array to compare it with the incomingpersonquestions Array.
         friends.forEach(element => {
             friendsQuestions.push(element.questions);
         });
         console.log(friendsQuestions);
-        const math = require('./math.js');
-        var findAMathchArray = math.findAMatch(incomingPersonQuestions, friendsQuestions);
-        console.log(findAMathchArray);
-        math.getIndexOfSmallestInArray(findAMathchArray);
+        
+        // compare these two arrays and find the difference for each element
+        var results = require('./results.js');
+        results.results(incomingPersonQuestions, friendsQuestions);
+        
+        friends.push(incomingPerson); 
+        console.log(friends);
+        res.json(incomingPerson);
 
-        res.json(incomingPerson);   
-     
     });
     
 };
-
-
-
-    // compare these two arrays and find the difference for each element
-    // push it to results array
-    // add all the elements in the results array 
-    // push it to compatibility array
-    // find the lowest number 
-    // pop that object with the lowest number
-    
-
-
 // exporting friends and function addingPerson to use it in server.js
 module.exports.friends = friends;
 module.exports.addingPerson = addingPerson;

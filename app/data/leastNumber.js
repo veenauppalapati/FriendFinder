@@ -1,15 +1,14 @@
-// the array I 'm working with for the purpose of testing
-var myArray = [ 2, 1, 5];
+ // find the lowest number 
 lowestNumber = function (array){
     // Grab the lowest number out of all in the array
     var lowest = Math.min(...array);
-    // console.log(lowest);
+    console.log(lowest);
 
     // get the index of the lowest number
     var indexOfTheLowestNumber = array.indexOf(lowest);
     console.log(indexOfTheLowestNumber);
 }
-// lowestNumber(myArray);
+// lowestNumber(array);
 
 module.exports.lowestNumber = lowestNumber; 
    
