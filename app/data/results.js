@@ -1,12 +1,10 @@
-// FIRST ARRAY :[]
-var firstArray = [2, 3, 4]
-var secondArray = [  [2, 4, 1], [1, 4, 5], [2,4,5], [2,4,5]   ];
 
 results = function(firstArray, secondArray){
 	var resultsArray = [];
 	var addedResult;
 	var compatibilityArray = [];
 	var reduce = require('./adding.js');
+	var lowestNumber = require('./leastNumber.js');
 	var count;
 	for(var i = 0; i< secondArray.length; i++){
 		for (var j = 0; j < secondArray[i].length; j++) {
@@ -24,7 +22,10 @@ results = function(firstArray, secondArray){
 		resultsArray = [];
 		compatibilityArray.push(addedResult);
 	}
-	console.log(compatibilityArray);
+	// console.log(compatibilityArray);
+	lowestNumber.lowestNumber(compatibilityArray);
+
 }
+results(firstArray, secondArray);
 
 module.exports.results = results;
