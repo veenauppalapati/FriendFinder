@@ -1,3 +1,4 @@
+ // add all the elements in the results array 
 reduce = function(array){
 var a;
 var b;
