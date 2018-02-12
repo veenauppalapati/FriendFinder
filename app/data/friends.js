@@ -56,10 +56,11 @@ var addingPerson = function(app){
         
         // compare these two arrays and find the difference for each element
         var results = require('./results.js');
-        results.results(incomingPersonQuestions, friendsQuestions);
+        var index = results.results(incomingPersonQuestions, friendsQuestions);
+        console.log(index);
         
         friends.push(incomingPerson); 
-        console.log(friends);
+        // console.log(friends);
         res.json(incomingPerson);
 
     });
